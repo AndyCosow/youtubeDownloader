@@ -10,10 +10,9 @@ app.listen(1000)
 
 app.post('/youtubeDownload', async (req, res) => {
 
-    if(!("url" in req.body.url)) return res.send({error: true, message: "Missing url key in request object"})
+    if(!("url" in req.body)) return res.send({error: true, message: "Missing url key in request object"})
 
     const url = req.body.url
-
 
     if(url.length > 500) return res.send({error: true, message: "Link too long"})
 
